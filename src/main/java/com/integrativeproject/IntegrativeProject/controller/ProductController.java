@@ -27,9 +27,9 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO dto){
-        ProductDTO creado = productService.createProduct(dto);
+        ProductDTO created = productService.createProduct(dto);
 
-        return ResponseEntity.created(URI.create("/api/products" + creado.getId())).body(creado);
+        return ResponseEntity.created(URI.create("/api/products" + created.getId())).body(created);
     }
 
 
