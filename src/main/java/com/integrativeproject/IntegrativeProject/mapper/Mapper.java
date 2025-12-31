@@ -17,11 +17,13 @@ public class Mapper {
     public static ProductDTO toDTO(Product p){
         if(p == null)return null;
 
+        // Maps product details to data transfer object
         return ProductDTO.builder()
                 .id(p.getId())
                 .name(p.getName())
                 .category(p.getCategory())
                 .price(p.getPrice())
+                .quantity(p.getQuantity())
                 .build();
     }
 

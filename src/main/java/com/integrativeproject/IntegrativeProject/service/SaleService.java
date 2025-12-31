@@ -74,6 +74,7 @@ public class SaleService implements ISaleService {
         //The Details list
         //Here is the products
         List<SaleDetail> details = new ArrayList<>();
+        double totalCalculated = 0.0;
 
         // Validates product existence; throws if not found
         for (SaleDetailDTO salDetDTO : saleDto.getDetails()) {
@@ -91,13 +92,14 @@ public class SaleService implements ISaleService {
             saleDet.setSale(sal);
 
             details.add(saleDet);
+            totalCalculated = totalCalculated + (salDetDTO.getPrice() * salDetDTO.getProductQuantity());
 
         }
         //Setting the list Sale.
         sal.setDetails(details);
 
         //Save in the BD
-        saleRepo.save(sal);
+        sal = saleRepo.save(sal);
 
         //Mapping exit
         SaleDTO exitSale = Mapper.toDTO(sal);

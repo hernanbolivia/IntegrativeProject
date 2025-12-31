@@ -32,9 +32,9 @@ public class SaleController {
      */
 
     @PostMapping
-    public ResponseEntity<SaleDTO> createSale(SaleDTO dto){
+    public ResponseEntity<SaleDTO> createSale(@RequestBody SaleDTO dto){
         SaleDTO created = saleService.createSale(dto);
-        return ResponseEntity.created(URI.create("/api/sales"+ created.getId())).body(created);
+        return ResponseEntity.created(URI.create("/api/sales" + created.getId())).body(created);
     }
 
     @PutMapping("/{id}")

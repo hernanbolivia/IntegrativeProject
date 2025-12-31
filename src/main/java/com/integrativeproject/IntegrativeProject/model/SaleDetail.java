@@ -17,11 +17,13 @@ public class SaleDetail {
     private Long id;
 
     //Sale
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "saleId")
     private Sale sale;
 
     //Product
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
     private Product product;
     private Integer productQuantity;
     private Double price;

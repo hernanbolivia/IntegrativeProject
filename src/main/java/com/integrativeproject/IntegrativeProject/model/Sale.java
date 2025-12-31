@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -21,12 +22,14 @@ public class Sale {
     private Long id;
     private LocalDate date;
     private String status;
-    private Double total;
+
 
     @ManyToOne
     private Branch branch;
 
-    @OneToMany (mappedBy = "sale")
-    private List<SaleDetail> details = new java.util.ArrayList<>();
+    @OneToMany (mappedBy = "sale", cascade = CascadeType.ALL,
+            orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<SaleDetail> details = new ArrayList<>();
+    private Double total;
 
 }
