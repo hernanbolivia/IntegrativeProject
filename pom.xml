@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.integrativeproject</groupId>
 	<artifactId>IntegrativeProject</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>IntegrativeProject</name>
 	<description>Integrative Project 1</description>
 	<url/>
